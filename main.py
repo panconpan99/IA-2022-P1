@@ -1,44 +1,41 @@
 from busqueda import *
 
-BOARD = [2, 2, 2, 0, 1, 1, 1]
-BOARD_INICIAL=[1, 1, 1, 0, 2, 2, 2]
-# Create game instance
-game = Frog(BOARD_INICIAL)
+ARREGLO_FINAL = [2, 2, 2, 0, 1, 1, 1]
+ARREGLO_INICIAL=[1, 1, 1, 0, 2, 2, 2]
+# Creacion del juego
+juego = Rana(ARREGLO_INICIAL)
 
 print("Estado inicial:")
-print(game)
+print(juego)
 print('===============================================')
 
-# Empieza el estado del arbol por profundidad
-init_state = deepcopy(game)
-game_tree = arbol(init_state)
+# Empieza el estado del nodo por profundidad
+init_state = deepcopy(juego)
+juego_rana = nodo(init_state)
 print("Algoritmo por Profundidad")
-solution = search_solution(game_tree, eval_heuristic=False)
-solution.reverse()
+solucion = buscar_solucion(juego_rana, eval_heuristica=False)
+solucion.reverse()
 
-# Final tree
+# Final nodo no imformada
 print("iteraciones:")
-game_tree.print_tree()
+juego_rana.mostrar_nodo()
 
 print('===============================================')
-print('Solucion:')
-for move in solution:
-    print(move)
+print('historial:')
+for mover in solucion:
+    print(mover)
 
-
-init_state = deepcopy(game)
-game_tree = arbol(init_state)
+init_state = deepcopy(juego)
+juego_rana = nodo(init_state)
 print("Algoritmo por Better first")
-solution = search_solution(game_tree, eval_heuristic=True)
-solution.reverse()
+solucion = buscar_solucion(juego_rana, eval_heuristica=True)
+solucion.reverse()
 
-# Final tree
+# Final nodo informada
 print("iteraciones:")
-game_tree.print_tree()
+juego_rana.mostrar_nodo()
 
 print('===============================================')
 print('Solucion:')
-for move in solution:
-    print(move)
-
-
+for mover in solucion:
+    print(mover)
