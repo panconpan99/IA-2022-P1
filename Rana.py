@@ -6,9 +6,10 @@ Reglas = {
 }
 
 class Rana:
-    def __init__(self, arreglo):
+    def __init__(self, arreglo,mov):
         self.arreglo = arreglo
         self.aux = self.arreglo.index(0)
+        self.move=mov
 
     def get_arreglo(self):
         return self.arreglo
@@ -22,7 +23,7 @@ class Rana:
 
         self.aux = m
         self.arreglo[p], self.arreglo[m] = self.arreglo[m], self.arreglo[p]
-
+        self.move=mover
     def mover_a(self, mover):
         if mover in Reglas.keys():
             if mover.startswith('L'):
@@ -39,8 +40,8 @@ class Rana:
         #Devuelve True si es solucion
         return self.arreglo == [2, 2, 2, 0, 1, 1, 1]
 
-    def __repr__(self):
-        return str(self.arreglo)
-
     def __str__(self):
-        return str(self.arreglo)
+        if self.move is not None:
+            return f'{self.arreglo}, {self.move}'
+        else:
+            return f'{self.arreglo}'

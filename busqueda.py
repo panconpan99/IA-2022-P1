@@ -11,12 +11,6 @@ def heuristica(arreglo):
             punto += 1
     return punto
 
-def mostrar_salto(mover):
-    if mover == "L" :print("izquierda")
-    elif mover == 'LL': print("2x izquierda")
-    elif mover == 'R': print("derecha")
-    elif mover =='RR': print("2x derecha")
-
 def buscar_solucion(nodo, eval_heuristica=False):
     movimiento = ['L', 'LL', 'R', 'RR']
 

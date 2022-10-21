@@ -3,7 +3,7 @@ from busqueda import *
 ARREGLO_FINAL = [2, 2, 2, 0, 1, 1, 1]
 ARREGLO_INICIAL=[1, 1, 1, 0, 2, 2, 2]
 # Creacion del juego
-juego = Rana(ARREGLO_INICIAL)
+juego = Rana(ARREGLO_INICIAL,mov=None)
 
 print("Estado inicial:")
 print(juego)
@@ -20,14 +20,16 @@ solucion.reverse()
 print("iteraciones:")
 juego_rana.mostrar_nodo()
 
-print('===============================================')
-print('historial:')
+print('')
+print('')
+print('solucion:')
 for mover in solucion:
     print(mover)
 
 init_state = deepcopy(juego)
 juego_rana = nodo(init_state)
 print("Algoritmo por Better first")
+
 solucion = buscar_solucion(juego_rana, eval_heuristica=True)
 solucion.reverse()
 
@@ -35,7 +37,8 @@ solucion.reverse()
 print("iteraciones:")
 juego_rana.mostrar_nodo()
 
-print('===============================================')
-print('Solucion:')
+print('')
+print('')
+print('solucion:')
 for mover in solucion:
     print(mover)
