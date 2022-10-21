@@ -12,10 +12,10 @@ def heuristica(arreglo):
     return punto
 
 def mostrar_salto(mover):
-    if mover == "L" :print("salto hacia la izquierda")
-    elif mover == 'LL': print("salto doble hacia la izquierda")
-    elif mover == 'R': print("salto hacia la derecha")
-    elif mover =='RR': print("salto doble hacia la derecha")
+    if mover == "L" :print("izquierda")
+    elif mover == 'LL': print("2x izquierda")
+    elif mover == 'R': print("derecha")
+    elif mover =='RR': print("2x derecha")
 
 def buscar_solucion(nodo, eval_heuristica=False):
     movimiento = ['L', 'LL', 'R', 'RR']
@@ -38,8 +38,6 @@ def buscar_solucion(nodo, eval_heuristica=False):
             if nuevo_estado and not nuevo_juego in estado:
                 estado.append(nuevo_juego)
                 nodo.agregar_hijo(nuevo_juego, espacio=aux_nodo.dato)
-        #===============================================
-
         if eval_heuristica:
             aux_nodo.hijos.sort(key=lambda x: heuristica(x.dato.get_arreglo()), reverse=True)
 
